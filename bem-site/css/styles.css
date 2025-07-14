@@ -81,6 +81,23 @@
     height: auto;
   }
   
+  
+  .map-wrapper {
+    width: 100%;
+    max-width: 800px;    /* or whatever cap you prefer */
+    margin: 0 auto;      /* center it */
+    border-radius: 8px;  /* optional rounded corners */
+    overflow: hidden;    /* clip the iframe to the rounded corners */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  .map-wrapper iframe {
+    display: block;      /* remove default inline spacing */
+    width: 100%;
+    height: 300px;       /* adjust as you like */
+    border: 0;
+  }
+  
   /* Contact info */
   .site-footer .footer-contact {
     display: flex;
