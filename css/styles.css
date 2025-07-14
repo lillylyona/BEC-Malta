@@ -81,6 +81,22 @@
     height: auto;
   }
   
+  .map-wrapper {
+    width: 100%;
+    max-width: 800px;    /* or whatever cap you prefer */
+    margin: 0 auto;      /* center it */
+    border-radius: 8px;  /* optional rounded corners */
+    overflow: hidden;    /* clip the iframe to the rounded corners */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  .map-wrapper iframe {
+    display: block;      /* remove default inline spacing */
+    width: 100%;
+    height: 300px;       /* adjust as you like */
+    border: 0;
+  }
+  
   /* Contact info */
   .site-footer .footer-contact {
     display: flex;
@@ -626,6 +642,55 @@
     background: #fff;
     border-left: 4px solid #b99d48;
   }
+
+  /* Base: a horizontal, scrollable flex row */
+.how-page .pathway.container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  overflow-x: auto;
+  margin: 4rem auto;
+  padding: 0 1rem;            /* give a little breathing room on the sides */
+  scrollbar-width: thin;      /* Firefox */
+}
+.how-page .pathway.container::-webkit-scrollbar {
+  height: 6px;
+}
+.how-page .pathway.container::-webkit-scrollbar-thumb {
+  background: rgba(1,33,105,0.5);
+  border-radius: 3px;
+}
+
+/* Each step card */
+.how-page .pathway.container .step {
+  flex: 0 0 200px;            /* 200px wide each, no shrinking below that */
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.how-page .pathway.container .step h2 {
+  margin-bottom: 0.75rem;
+}
+.how-page .pathway.container .step ul {
+  list-style: disc inside;
+  text-align: left;
+}
+
+/* On small screens (under 600px), stack instead of scroll */
+@media (max-width: 600px) {
+  .how-page .pathway.container {
+    display: block;
+    padding: 0;
+  }
+  .how-page .pathway.container .step {
+    margin: 0 auto 1.5rem;
+    width: 90%;               /* almost full width */
+    max-width: 350px;         /* but don’t get too big */
+  }
+}
+
 
   /* only inside the homepage “What Our Students Say” cards */
 .home-page .testimonials-feature .testimonial::before {
