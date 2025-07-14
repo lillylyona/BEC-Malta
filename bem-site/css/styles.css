@@ -1,0 +1,815 @@
+/* =========================================
+   RESET & BASE STYLES
+   ========================================= */
+   * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    font-family: 'Open Sans', sans-serif;
+    color: #012169;
+    background: #fff;
+    line-height: 1.6;
+  }
+  .container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  a {
+    text-decoration: none;
+  }
+  ul {
+    list-style: none;
+  }
+  
+  /* =========================================
+     HEADER & NAVIGATION
+     ========================================= */
+  .site-header {
+    background: #fff;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ececec;
+  }
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: #012169;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+  .nav-links a {
+    color: #012169;
+    font-weight: 600;
+    padding-bottom: 0.25rem;
+  }
+  .nav-links a.active,
+  .nav-links a:hover {
+    border-bottom: 2px solid #b99d48;
+  }
+  
+/* ==============================================
+   GLOBAL FOOTER (all pages)
+   ============================================== */
+   .site-footer {
+    background: #002855;
+    color: #fff;
+    padding: 2rem 0;
+  }
+  .site-footer .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  /* Logos (flag + map) */
+  .site-footer .footer-logos {
+    display: flex;
+    gap: 1rem;
+  }
+  .site-footer .footer-logos img {
+    width: 40px;
+    height: auto;
+  }
+  
+  /* Contact info */
+  .site-footer .footer-contact {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .site-footer .footer-contact a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .site-footer .footer-contact img {
+    width: 24px;
+    height: auto;
+    vertical-align: middle;
+  }
+  
+  /* Navigation links */
+  .site-footer .footer-nav {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .site-footer .footer-nav a {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .site-footer .footer-nav a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Footer note */
+  .site-footer .footer-note {
+    font-size: 0.9rem;
+    color: #ccc;
+    text-align: center;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .site-footer .footer-inner {
+      gap: 1rem;
+    }
+    .site-footer .footer-contact,
+    .site-footer .footer-nav {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+  }
+  
+
+  /* =========================================
+     GENERIC COMPONENTS
+     ========================================= */
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .btn-primary {
+    background: #b99d48;
+    color: #012169;
+    padding: 0.75rem 1.5rem;
+  }
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+  .btn-outline {
+    background: transparent;
+    border: 2px solid #b99d48;
+    color: #b99d48;
+    padding: 0.75rem 1.5rem;
+  }
+  .btn-outline:hover {
+    opacity: 0.9;
+  }
+  
+  /* Headings */
+  h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #012169;
+  }
+  
+  /* Hero base */
+  .hero-base {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+  }
+  .hero-base .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(1,33,105,0.6);
+  }
+  .hero-base .hero-content {
+    position: relative;
+    text-align: center;
+    padding: 0 1rem;
+    color: #fff;
+  }
+  
+  /* Grid util */
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+  
+  /* =========================================
+     HOME PAGE (body.home-page)
+     ========================================= */
+  .home-page .hero {
+    background-image: url('../images/valletta-skyline.jpg');
+    height: 75vh;
+    display: flex;
+    align-items: center;
+  }
+  .home-page .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .home-page .hero-content p {
+    font-size: 1.1rem;
+  }
+  .home-page .hero-ctas {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .home-page .btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+  }
+  .home-page .btn-small {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Why Choose Us */
+  .home-page .why-choose {
+    padding: 4rem 0;
+  }
+
+  .home-page .card-icon {
+    width: 50px;
+    margin-bottom: 1rem;
+  }
+  
+  /* Card styling (same as your Home “Why Choose Us” cards) */
+.why-choose .cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+.why-choose .card {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 2rem 1rem;
+  text-align: center;
+  transition: transform 0.2s;
+}
+.why-choose .card:hover {
+  transform: translateY(-5px);
+}
+.why-choose .card-icon {
+  width: 50px;
+  margin-bottom: 1rem;
+}
+
+  /* Home Pathway */
+  .home-page .home-pathway .flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 3rem 0;
+  }
+  .home-page .home-pathway .step img {
+    width: 60px;
+    margin-bottom: 0.5rem;
+  }
+  .home-page .home-pathway .arrow {
+    font-size: 2rem;
+    color: #012169;
+  }
+  
+  /* Testimonials */
+  .home-page .testimonials-feature {
+    padding: 4rem 0;
+    text-align: center;
+  }
+  .home-page .testimonials-grid {
+    margin-top: 2rem;
+  }
+  .home-page .testimonial {
+    background: #fff;
+    padding: 2rem 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  .home-page .testimonial-photo {
+    width: 100%;
+    max-width: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: block;
+  }
+  
+  /* Work Highlight */
+  .work-highlight {
+    background: #f9f9f9;
+    padding: 4rem 0;
+  }
+  .work-highlight-inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    border-radius: 8px;
+  }
+  .work-highlight-inner .work-image {
+    flex: 0 0 400px;
+  }
+  .work-highlight-inner .work-image img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  .work-highlight-inner .work-text {
+    flex: 1;
+  }
+  .work-highlight-inner .work-text h2 {
+    margin-bottom: 1rem;
+  }
+  .work-highlight-inner .work-text p {
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  
+  /* Bottom CTA */
+  .home-page .bottom-cta {
+    background: #b99d48;
+    color: #012169;
+    text-align: center;
+    padding: 3rem 0;
+  }
+  .home-page .bottom-cta h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  .home-page .bottom-cta .btn-large {
+    background: #012169;
+    color: #fff;
+  }
+  
+  /* =========================================
+     COURSES PAGE (body.courses-page)
+     ========================================= */
+  .courses-page .hero {
+    background-image: url('../images/courses-hero.jpg');
+    height: 60vh;
+    display: flex;
+    align-items: center;
+  }
+  .courses-page .courses-intro {
+    display: flex;
+    align-items: center;           /* vertically center text beside image */
+    gap: 2rem;                     /* consistent gutter */
+    margin: 4rem 0;                
+    padding: 0 2rem;  
+  }
+
+  .courses-page .course-image {
+  flex: 0 0 45%;                 /* take up ~half the width */
+  max-width: 500px; 
+  }
+
+  .courses-page .course-image img {
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+  }
+  .courses-page .courses-intro .course-details {
+    flex: 1;
+    padding: 1rem; 
+  }
+
+  .courses-page .course-details h2 {
+    margin-bottom: 1rem;
+  }
+
+  .courses-page .course-details ul {
+    list-style: disc inside;
+    margin-bottom: 1.5rem;
+  }
+  .courses-page .course-details a.btn-primary {
+    margin-top: 1rem;
+  }
+  
+  .courses-page .highlight {
+    background: #f1f5f9;
+    padding: 2rem;
+    border-left: 4px solid #b99d48;
+    margin-bottom: 4rem;
+  }
+  .courses-page .diploma {
+
+    margin: 4rem 0;
+  }
+
+  .courses-page .diploma-content {
+    max-width: 800px;         /* cap the width */
+    margin: 0 auto;           /* center it */
+    text-align: left;         /* keep list items aligned */
+    padding: 0 1rem;          /* small side padding on mobile */
+  }
+
+  .courses-page .diploma-content h2 {
+    text-align: center;       /* center the heading */
+    margin-bottom: 1.5rem;
+  }
+
+  .courses-page .diploma-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  
+  .courses-page .diploma ul {
+    display: inline-block;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+  }
+  .courses-page .diploma li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .courses-page .diploma li::before {
+    content: '✔';
+    position: absolute;
+    left: 0;
+    color: #b99d48;
+  }
+  .courses-page .modules-list {
+    list-style: circle inside;
+    margin-bottom: 1rem;
+  }
+  .courses-page .pathway {
+    text-align: center;
+    margin: 4rem 0;
+  }
+
+  /* ----------------------------------------
+   Courses Page — Pathway Steps
+   ---------------------------------------- */
+/* — Narrower, perfectly centered 5-card grid — */
+.courses-page .pathway .pathway-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  gap: 1rem;
+  max-width: 500px;      /* shrink the container */
+  margin: 2rem auto 4rem;/* center it (top, auto-sides, bottom) */
+  justify-items: center;
+}
+   
+.courses-page .pathway {
+  margin: 4rem 0;
+  text-align: center;
+}
+.courses-page .pathway-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0 4rem;
+  justify-items: center;
+}
+.courses-page .pathway-step {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  flex: 0 1 200px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.courses-page .pathway-step h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: #012169;
+  margin-bottom: 0.5rem;
+}
+.courses-page .pathway-step p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+/* Responsive: stack on narrow screens */
+@media (max-width: 600px) {
+  .courses-page .pathway-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .courses-page .pathway-step {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+  .courses-page .testimonials.container {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 1rem;
+    text-align: center;
+  }
+  .courses-page .testimonials.container blockquote {
+    margin: 1.5rem auto;
+    max-width: 700px;
+    text-align: left;
+    padding: 1rem 1.5rem;
+    border-left: 4px solid #b99d48;
+  }
+  .courses-page .cta-banner {
+    background: #012169;
+    color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+  }
+  .courses-page .cta-banner .btn-primary {
+    background: #b99d48;
+    color: #012169;
+  }
+  
+  /* =========================================
+     HOW IT WORKS PAGE (body.how-page)
+     ========================================= */
+  .how-page .hero {
+    background-image: url('../images/how-it-works-hero.jpg');
+    height: 60vh;
+    display: flex;
+    align-items: center;
+  }
+  .how-page .pathway {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 4rem auto;
+    max-width: calc(5 * 180px + 4 * 1rem);
+  }
+  .how-page .pathway .step {
+    flex: 0 0 180px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+  .how-page .highlight {
+    background: #fff8e8;
+    padding: 2rem;
+    border-left: 4px solid #b99d48;
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+
+  .how-page .tuition {
+    display: flex;
+    justify-content: center;  /* center the inner content horizontally */
+    padding: 2rem 0;
+  }
+
+  .how-page .tuition .two-column {
+    display: flex;
+    gap: 2rem;
+    margin: 4rem 0;
+    margin-top: 1rem;
+  margin-bottom: 1rem;
+  }
+  .how-page .tuition li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+  .how-page .tuition li::before {
+    content: '▪';
+    position: absolute;
+    left: 0;
+    color: #b99d48;
+  }
+  .how-page .tuition .icon img {
+    width: 80px;
+  }
+  .how-page .work-support {
+    background: #f1f5f9;
+    padding: 4rem 0;
+  }
+  .how-page__work-support-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;        /* side padding so content can breathe */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .how-page .work-support-inner .work-image {
+    flex: 0 0 350px;
+  }
+  .how-page__work-support-inner .work-image img {
+    width: 100%;
+    max-width: 350px;              /* same as before */
+    border-radius: 8px;
+  }
+  .how-page .work-support-inner .work-details {
+    flex: 1;
+    line-height: 1.7;
+  }
+
+  .how-page__work-support-inner .work-text {
+    flex: 1;                       /* text takes remaining space */
+    font-style: italic;
+    line-height: 1.7;
+  }
+  .how-page .testimonials {
+    text-align: center;
+    padding: 4rem 0;
+  }
+  .how-page .testimonials blockquote {
+    margin: 1rem auto;
+    max-width: 700px;
+    padding: 1rem 1.5rem;
+    background: #fff;
+    border-left: 4px solid #b99d48;
+  }
+
+  /* only inside the homepage “What Our Students Say” cards */
+.home-page .testimonials-feature .testimonial::before {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  color: #b99d48;
+  font-size: 3rem;
+}
+
+/* only inside the courses‐page testimonials */
+.courses-page .testimonials blockquote::before {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  color: #b99d48;
+  font-size: 3rem;
+}
+
+/* only inside the how‐it‐works testimonials */
+
+  .how-page .cta-banner {
+    background: #012169;
+    color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+  }
+  .how-page .cta-banner .btn-primary {
+    background: #b99d48;
+    color: #012169;
+  }
+  
+  /* =========================================
+     CONTACT PAGE (body.contact-page)
+     ========================================= */
+  .contact-page .hero {
+    padding: 4rem 0;
+    background-color: #002855;
+  }
+  .contact-page .hero-content h1,
+  .contact-page .hero-content p {
+    color: #fff;
+  }
+  
+  /* Contact page hero */
+.contact-page .hero-base {
+  position: relative;
+  background-color: #002855;
+  color: #fff;
+}
+.contact-page .hero-base .hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(1,33,105,0.6);
+}
+.contact-page .hero-base .hero-content {
+  position: relative;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+.contact-page .hero-content h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.contact-page .hero-content p {
+  font-size: 1rem;
+}
+
+
+  /* Contact form styling */
+.contact-page .contact-form {
+  background: #f9f9f9;
+  padding: 4rem 1rem;
+}
+.contact-page .contact-form .form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1.5rem;
+}
+.contact-page .contact-form label {
+  font-weight: 600;
+}
+.contact-page .contact-form input,
+.contact-page .contact-form textarea,
+.contact-page .contact-form select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.contact-page .contact-form button {
+  margin-top: 2rem;  
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+}
+
+/* WhatsApp section */
+.contact-page .whatsapp-contact {
+  display: flex;
+  justify-content: space-between; /* push left & right to edges */
+  align-items: center;
+  padding: 2rem 0;  
+}
+/* Ensure container max-width & centering still apply */
+.contact-page .whatsapp-contact.container {
+  display: flex;
+}
+
+/* Left side: icon + message */
+.contact-page .whatsapp-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;         /* take up as much as possible */
+  max-width: 50%;  /* but no more than half */
+}
+.contact-page .whatsapp-contact img {
+  width: 40px;
+  height: auto;
+  flex-shrink: 0;
+}
+.contact-page .whatsapp-left,
+.contact-page .whatsapp-right {
+  flex: 1;
+}
+.contact-page .whatsapp-contact p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* Office info */
+.contact-page .office-info {
+  text-align: center;
+  padding: 4rem 0;
+}
+.contact-page .office-info h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+.contact-page .office-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 400px;
+}
+.contact-page .office-info li {
+  margin-bottom: 0.5rem;
+}
+/* Map */
+.contact-page .map-embed {
+  text-align: center;
+  margin: 4rem 0;
+}
+.contact-page .map-embed img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
+/* Trust strip */
+.contact-page .trust-strip {
+  background: #f9f9f9;
+  padding: 2rem 0;
+}
+.contact-page .trust-strip .trust-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+.contact-page .trust-strip .trust-logos div {
+  text-align: center;
+}
+.contact-page .trust-strip .trust-logos img {
+  width: 40px;
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+.contact-page .trust-strip .trust-note {
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
