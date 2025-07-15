@@ -495,30 +495,20 @@
     list-style: circle inside;
     margin-bottom: 1rem;
   }
-  .courses-page .pathway {
-    text-align: center;
-    margin: 4rem 0;
-  }
-
   /* ----------------------------------------
    Courses Page — Pathway Steps
    ---------------------------------------- */
 /* — Narrower, perfectly centered 5-card grid — */
-.courses-page .pathway .pathway-grid {
+
+.courses-page .pathway-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(150px, 1fr));
-  gap: 1rem;
-  max-width: 500px;      /* shrink the container */
-  margin: 2rem auto 4rem;/* center it (top, auto-sides, bottom) */
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  justify-items: center; 
 }
-   
-/* ----------------------------------------
-   Courses Page — Pathway Steps
-   ---------------------------------------- */
+
    .courses-page .pathway {
     text-align: center;
-    margin: 4rem 0;
   }
   
   /* Desktop: 5 cards side‐by‐side */
@@ -526,7 +516,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 2rem;
-    margin: 2rem auto 4rem;
     justify-items: center;      /* center each card in its cell */
     max-width: 1100px;          /* optional cap to avoid overly wide rows */
   }
