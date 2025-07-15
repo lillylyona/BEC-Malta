@@ -671,15 +671,33 @@
     line-height: 1.7;
   }
   .how-page .testimonials {
-    text-align:left;
-    padding: 4rem 0;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;    /* horizontally centre children */
+    text-align: center;     /* centre text inside */
+    padding: 4rem 1rem;     
+  }
+  .how-page .testimonials h2 {
+    margin-bottom: 2rem;
+    max-width: 800px;   /* prevents super‐wide headings on large screens */
+    margin-bottom: 2rem;
   }
   .how-page .testimonials blockquote {
-    margin: 1rem auto;
-    max-width: 700px;
-    padding: 1rem 1.5rem;
-    background: #fff;
+    position: relative;       /* establish positioning context */
+    padding: 1rem 1.5rem;     /* give room for the quote mark */
+    background: #fff;         
     border-left: 4px solid #b99d48;
+    max-width: 700px;
+    width: 100%;
+    margin: 1rem 0;
+  }
+  .how-page .testimonials blockquote::before {
+    position: absolute;
+    top: -0.5rem;             
+    left: 0.5rem;             
+    color: #b99d48;
+    font-size: 3rem;
+    line-height: 1;
   }
 
   /* Base: a horizontal, scrollable flex row */
