@@ -34,7 +34,7 @@
       <form
   name="contact"
   method="POST"
-  action="/success.html"
+  action="/contact.html"
   data-netlify="true"
   netlify-honeypot="bot-field"
 >
@@ -76,6 +76,11 @@
 
       <button type="submit" class="btn btn-primary btn-large">Send Message</button>
     </form>
+      <!-- hidden success message -->
+    <div id="form-success" class="form-success" hidden>
+      <h2>Thanks! Your message has been sent.</h2>
+      <p>We’ll be in touch very soon.</p>
+    </div>
   </section>
 
   <script>
@@ -90,6 +95,41 @@
         alert(firstInvalid.validationMessage);
         e.preventDefault();
       }
+    });
+  </script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contact-form');
+      const success = document.getElementById('form-success');
+  
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+  
+        // gather the form data
+        const data = new FormData(form);
+  
+        // send to Netlify
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        })
+        .then(response => {
+          if (response.ok) {
+            // hide the form, show the thank-you
+            form.hidden = true;
+            success.hidden = false;
+            form.reset();
+          } else {
+            return response.json().then(err => Promise.reject(err));
+          }
+        })
+        .catch(error => {
+          alert('Oops! There was a problem submitting your form.');
+          console.error(error);
+        });
+      });
     });
   </script>
   
