@@ -842,6 +842,14 @@
 
 
   /* Contact form styling */
+  /* Center the form on desktop */
+.contact-page .contact-form form {
+  max-width: 600px;    /* or whatever width feels right */
+  margin: 0 auto;      /* auto left/right margins center it */
+  width: 100%;         /* ensure it still shrinks on narrow viewports */
+  box-sizing: border-box;
+}
+
 .contact-page .contact-form {
   background: #f9f9f9;
   padding: 4rem 1rem;
@@ -937,12 +945,25 @@
 }
 /* Map */
 .contact-page .map-embed {
-  text-align: center;
-  margin: 4rem 0;
+  display: flex;               /* make it a flex container */
+  justify-content: center;     /* horizontally center its child */
+  margin: 4rem 0;              /* vertical spacing */
+  padding: 0 1rem;             /* optional side padding on narrow screens */
 }
+
 .contact-page .map-embed img {
   width: 100%;
   max-width: 600px;
+  border-radius: 8px;
+}
+
+.contact-page .map-embed iframe,
+.contact-page .map-embed img {
+  display: inline-block;      /* allow text-align to work */
+  max-width: 100%;            /* never overflow its wrapper */
+  width: 600px;               /* your chosen desktop width */
+  height: 400px;              /* adjust as needed */
+  border: 0;
   border-radius: 8px;
 }
 
@@ -960,6 +981,32 @@
     width: 100%;            /* fill the padded container */
     max-width: 100%;        /* don’t exceed its parent */
     height: auto;
+  }
+}
+
+/* Center and size the map‐embed section itself */
+.contact-page .map-embed.container {
+  max-width: 600px;     /* cap it to the same max you want */
+  margin: 4rem auto;    /* vertical spacing + auto left/right */
+  padding: 0;           /* kill any extra container padding */
+}
+
+/* Make the map fill that centered box */
+.contact-page .map-embed iframe {
+  width: 100%;
+  height: 400px;        /* or whatever height you prefer */
+  border: 0;
+  border-radius: 8px;
+}
+
+/* And on narrow screens, let it go full‑width */
+@media (max-width: 768px) {
+  .contact-page .map-embed.container {
+    max-width: 100%;
+    padding: 0 1rem;    /* a little breathing room */
+  }
+  .contact-page .map-embed iframe {
+    height: auto;       /* preserve aspect ratio */
   }
 }
 
