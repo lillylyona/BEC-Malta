@@ -871,6 +871,15 @@
   font-size: 1.1rem;
 }
 
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
 /* WhatsApp section */
 .contact-page .whatsapp-contact {
   display: flex;

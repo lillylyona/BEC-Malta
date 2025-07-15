@@ -30,32 +30,60 @@
   </section>
 
   <!-- Contact Form -->
-  <section class="contact-form container">
     <section class="contact-form container">
-      <form
-        name="contact"
-        method="POST"
-        action="/contact.html"
-        data-netlify="true"
+      <form 
+        name="contact" 
+        method="POST" 
+        action="/contact.html" 
+        data-netlify="true" 
         netlify-honeypot="bot-field"
       >
-      <label>Name<br><input type="text" name="name" required></label>
-      <label>Email<br><input type="email" name="email" required></label>
-      <label>WhatsApp number<br><input type="tel" name="whatsapp"></label>
-      <label>Country<br><input type="text" name="country"></label>
-      <label>Message<br><textarea name="message" rows="4"></textarea></label>
-      <label>
-        I am a<br>
-        <select name="role">
-          <option>I'm a future student</option>
-          <option>I'm a parent</option>
-          <option>I'm an education agent</option>
-        </select>
-      </label>
+        <!-- Netlify identifies the form by this hidden field -->
+        <input type="hidden" name="form-name" value="contact" />
+        <!-- honeypot field to catch bots -->
+        <p style="display:none">
+          <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+        </p>
+  
+        <label>
+          Name<br/>
+          <input type="text" name="name" required />
+        </label>
+  
+        <label>
+          Email<br/>
+          <input type="email" name="email" required />
+        </label>
+  
+        <label>
+          WhatsApp number<br/>
+          <input type="tel" name="whatsapp" />
+        </label>
+  
+        <label>
+          Country<br/>
+          <input type="text" name="country" />
+        </label>
+  
+        <label>
+          Message<br/>
+          <textarea name="message" rows="4"></textarea>
+        </label>
+  
+        <label>
+          I am a<br/>
+          <select name="role">
+            <option>I'm a future student</option>
+            <option>I'm a parent</option>
+            <option>I'm an education agent</option>
+          </select>
+        </label>
+  
+        <button type="submit" class="btn btn-primary btn-large">Send Message</button>
+      </form>
+    </section>
 
-      <button type="submit" class="btn btn-primary btn-large">Send Message</button>
-    </form>
-  </section>
+  
 <!-- Section 3: WhatsApp Direct -->
 <section class="whatsapp-contact container">
   <div class="whatsapp-left">
