@@ -31,8 +31,14 @@
 
   <!-- Contact Form -->
   <section class="contact-form container">
-    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-      <input type="hidden" name="form-name" value="contact">
+    <form name="contact"
+      method="POST"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+      action="/success.html">
+  <!-- this must come *before* your other inputs -->
+  <input type="hidden" name="bot-field">
+  <input type="hidden" name="form-name" value="contact">
 
       <label>Name<br><input type="text" name="name" required></label>
       <label>Email<br><input type="email" name="email" required></label>
@@ -48,7 +54,7 @@
         </select>
       </label>
 
-      <button type="submit" class="btn btn-primary">Send Message</button>
+      <button type="submit" class="btn btn-primary btn-large">Send Message</button>
     </form>
   </section>
 <!-- Section 3: WhatsApp Direct -->

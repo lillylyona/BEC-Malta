@@ -56,6 +56,7 @@
     border-bottom: 2px solid #b99d48;
   }
   
+  
 /* ==============================================
    GLOBAL FOOTER (all pages)
    ============================================== */
@@ -166,16 +167,15 @@
   }
   .btn-primary {
     background: #b99d48;
-    color: #012169;
+    color: #F9F9F9;
     padding: 0.75rem 1.5rem;
   }
   .btn-primary:hover {
     opacity: 0.9;
   }
   .btn-outline {
-    background: transparent;
-    border: 2px solid #b99d48;
-    color: #b99d48;
+    background: #b99d48;
+    color: #F9F9F9;
     padding: 0.75rem 1.5rem;
   }
   .btn-outline:hover {
@@ -197,7 +197,7 @@
   .hero-base .hero-overlay {
     position: absolute;
     inset: 0;
-    background: rgba(1,33,105,0.6);
+    background: rgba(89, 117, 181, 0.6);
   }
   .hero-base .hero-content {
     position: relative;
@@ -346,10 +346,30 @@
     margin-bottom: 2rem;
   }
   
+  @media (max-width: 768px) {
+    .work-highlight-inner {
+      flex-direction: column;
+      padding: 1.5rem 1rem;    /* tighten the padding */
+      text-align: center;      /* center the copy */
+    }
+    .work-highlight-inner .work-image,
+    .work-highlight-inner .work-text {
+      flex: none;
+      width: 100%;             /* full width each */
+      max-width: none;         /* remove the 400px cap */
+    }
+    .work-highlight-inner .work-image {
+      margin-bottom: 1.5rem;   /* breathing room below the image */
+    }
+    .work-highlight-inner .work-text p {
+      margin-bottom: 1.5rem;   /* tighten the bottom margin */
+    }
+  }
+  
   /* Bottom CTA */
   .home-page .bottom-cta {
     background: #b99d48;
-    color: #012169;
+    color: #F9F9F9;
     text-align: center;
     padding: 3rem 0;
   }
@@ -371,41 +391,59 @@
     display: flex;
     align-items: center;
   }
+/* Courses Intro – base two‑column */
+.courses-page .courses-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin: 4rem 0;
+  padding: 0 2rem;            /* add some side padding so it never hugs the edge */
+}
+
+/* Left: image column */
+.courses-page .course-image {
+  flex: 0 0 300px;            /* fixed up to 300px wide */
+}
+.courses-page .course-image img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Right: details column */
+.courses-page .course-details {
+  flex: 1;                    /* fill remaining space */
+  padding: 1rem;
+}
+.courses-page .course-details h2 {
+  margin-bottom: 1rem;
+}
+.courses-page .course-details ul {
+  list-style: disc inside;
+  margin-bottom: 1.5rem;
+}
+.courses-page .course-details a.btn-primary {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 768px) {
   .courses-page .courses-intro {
-    display: flex;
-    align-items: center;           /* vertically center text beside image */
-    gap: 2rem;                     /* consistent gutter */
-    margin: 4rem 0;                
-    padding: 0 2rem;  
+    flex-direction: column;
+    padding: 0 1rem;          /* reduce side padding on small screens */
   }
-
-  .courses-page .course-image {
-  flex: 0 0 45%;                 /* take up ~half the width */
-  max-width: 500px; 
-  }
-
-  .courses-page .course-image img {
+  .courses-page .course-image,
+  .courses-page .course-details {
+    flex: none;
     width: 100%;
-    border-radius: 8px;
-    display: block;
+    max-width: none;
   }
-  .courses-page .courses-intro .course-details {
-    flex: 1;
-    padding: 1rem; 
+  .courses-page .course-image {
+    margin-bottom: 2rem;      /* space between image and details */
   }
+}
 
-  .courses-page .course-details h2 {
-    margin-bottom: 1rem;
-  }
-
-  .courses-page .course-details ul {
-    list-style: disc inside;
-    margin-bottom: 1.5rem;
-  }
-  .courses-page .course-details a.btn-primary {
-    margin-top: 1rem;
-  }
-  
   .courses-page .highlight {
     background: #f1f5f9;
     padding: 2rem;
@@ -475,46 +513,47 @@
   justify-items: center;
 }
    
-.courses-page .pathway {
-  margin: 4rem 0;
-  text-align: center;
-}
-.courses-page .pathway-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 2rem;
-  margin: 2rem 0 4rem;
-  justify-items: center;
-}
-.courses-page .pathway-step {
-  background: #f9f9f9;
-  border-radius: 8px;
-  padding: 1.5rem;
-  flex: 0 1 200px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-.courses-page .pathway-step h3 {
-  font-family: 'Montserrat', sans-serif;
-  color: #012169;
-  margin-bottom: 0.5rem;
-}
-.courses-page .pathway-step p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #333;
-}
-
-/* Responsive: stack on narrow screens */
-@media (max-width: 600px) {
+/* ----------------------------------------
+   Courses Page — Pathway Steps
+   ---------------------------------------- */
+   .courses-page .pathway {
+    text-align: center;
+    margin: 4rem 0;
+  }
+  
+  /* Desktop: 5 cards side‐by‐side */
   .courses-page .pathway-grid {
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin: 2rem auto 4rem;
+    justify-items: center;      /* center each card in its cell */
+    max-width: 1100px;          /* optional cap to avoid overly wide rows */
   }
+  
+  /* Card styling */
   .courses-page .pathway-step {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     width: 100%;
-    max-width: 300px;
+    max-width: 250px;           /* default “card” width */
   }
-}
+  
+  /* Make the grid collapse to 1 column on mobile */
+  @media (max-width: 600px) {
+    .courses-page .pathway .pathway-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin: 2rem auto 4rem;
+      
+    }
+    .courses-page .pathway-step {
+      max-width: 90%;
+    }
+  }
+  
 
   .courses-page .testimonials.container {
     max-width: 800px;
@@ -537,7 +576,7 @@
   }
   .courses-page .cta-banner .btn-primary {
     background: #b99d48;
-    color: #012169;
+    color: #F9F9F9;
   }
   
   /* =========================================
@@ -632,7 +671,7 @@
     line-height: 1.7;
   }
   .how-page .testimonials {
-    text-align: center;
+    text-align:left;
     padding: 4rem 0;
   }
   .how-page .testimonials blockquote {
@@ -659,6 +698,35 @@
 .how-page .pathway.container::-webkit-scrollbar-thumb {
   background: rgba(1,33,105,0.5);
   border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+  .how-page__work-support-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* center children */
+    gap: 1.5rem;             /* space between image & text */
+    padding: 2rem 1rem;      /* horizontal padding */
+  }
+
+  .how-page__work-support-inner .work-image,
+  .how-page__work-support-inner .work-text {
+    width: 100%;             /* full width */
+    max-width: 500px;        /* optional cap */
+  }
+
+  .how-page__work-support-inner .work-image img {
+    width: 100%;             /* responsive image */
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .how-page__work-support-inner .work-text p {
+    font-size: 1rem;         /* adjust text size if needed */
+    line-height: 1.6;
+    text-align: center;      /* center the quote */
+    margin: 0;               /* reset any default margins */
+  }
 }
 
 /* Each step card */
@@ -720,14 +788,15 @@
   }
   .how-page .cta-banner .btn-primary {
     background: #b99d48;
-    color: #012169;
+    color: #F9F9F9;
   }
   
   /* =========================================
      CONTACT PAGE (body.contact-page)
      ========================================= */
   .contact-page .hero {
-    padding: 4rem 0;
+    height: auto;           /* remove the fixed 60vh */
+    padding: 4rem 0; 
     background-color: #002855;
   }
   .contact-page .hero-content h1,
@@ -735,6 +804,18 @@
     color: #fff;
   }
   
+  /* Shrink it on small screens */
+@media (max-width: 768px) {
+  .contact-page .hero {
+    padding: 2rem 0;      /* cut vertical padding in half */
+  }
+  .contact-page .hero-content h1 {
+    font-size: 1.75rem;   /* scale down the heading */
+  }
+  .contact-page .hero-content p {
+    font-size: 0.95rem;   /* scale down the subhead */
+  }
+}
   /* Contact page hero */
 .contact-page .hero-base {
   position: relative;
@@ -852,6 +933,23 @@
   width: 100%;
   max-width: 600px;
   border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  /* Center and pad the map section */
+  .contact-page .map-embed {
+    padding: 0 1rem;        /* side padding so it never touches the edges */
+    margin: 2rem 0;         /* vertical spacing */
+  }
+
+  /* Ensure the image (or iframe) centers and scales */
+  .contact-page .map-embed img {
+    display: block;         /* enables auto margins */
+    margin: 0 auto;         /* center horizontally */
+    width: 100%;            /* fill the padded container */
+    max-width: 100%;        /* don’t exceed its parent */
+    height: auto;
+  }
 }
 
 /* Trust strip */
