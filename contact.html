@@ -31,58 +31,67 @@
 
   <!-- Contact Form -->
     <section class="contact-form container">
-      <form 
-        name="contact" 
-        method="POST" 
-        action="/contact.html" 
-        data-netlify="true" 
-        netlify-honeypot="bot-field"
-      >
-        <!-- Netlify identifies the form by this hidden field -->
-        <input type="hidden" name="form-name" value="contact" />
-        <!-- honeypot field to catch bots -->
-        <p style="display:none">
-          <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-        </p>
-  
-        <label>
-          Name<br/>
-          <input type="text" name="name" required />
-        </label>
-  
-        <label>
-          Email<br/>
-          <input type="email" name="email" required />
-        </label>
-  
-        <label>
-          WhatsApp number<br/>
-          <input type="tel" name="whatsapp" />
-        </label>
-  
-        <label>
-          Country<br/>
-          <input type="text" name="country" />
-        </label>
-  
-        <label>
-          Message<br/>
-          <textarea name="message" rows="4"></textarea>
-        </label>
-  
-        <label>
-          I am a<br/>
-          <select name="role">
-            <option>I'm a future student</option>
-            <option>I'm a parent</option>
-            <option>I'm an education agent</option>
-          </select>
-        </label>
-  
-        <button type="submit" class="btn btn-primary btn-large">Send Message</button>
-      </form>
-    </section>
+      <form
+  name="contact"
+  method="POST"
+  action="/success.html"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+>
+      <label>
+        Name<br>
+        <input type="text" name="name" required minlength="2" placeholder="Your full name">
+      </label>
+      <label>
+        Email<br>
+        <input type="email" name="email" required placeholder="you@example.com">
+      </label>
+      <label>
+        WhatsApp number<br>
+        <input
+          type="tel"
+          name="whatsapp"
+          required
+          placeholder="+35612345678"
+          pattern="^\+?[0-9]{7,15}$"
+          title="Include country code, digits only (7–15 digits)."
+        >
+      </label>
+      <label>
+        Country<br>
+        <input type="text" name="country" required placeholder="Your country">
+      </label>
+      <label>
+        Message<br>
+        <textarea name="message" rows="4" required placeholder="What can we help you with?"></textarea>
+      </label>
+      <label>
+        I am a<br>
+        <select name="role">
+          <option>Future student</option>
+          <option>Parent</option>
+          <option>Education agent</option>
+        </select>
+      </label>
 
+      <button type="submit" class="btn btn-primary btn-large">Send Message</button>
+    </form>
+  </section>
+
+  <script>
+    document.querySelector('.contact-form form').addEventListener('submit', function(e) {
+      const form = e.target;
+      if (!form.checkValidity()) {
+        // find the first invalid field and focus it
+        const firstInvalid = form.querySelector(':invalid');
+        firstInvalid.focus();
+  
+        // show its browser default validation message
+        alert(firstInvalid.validationMessage);
+        e.preventDefault();
+      }
+    });
+  </script>
   
 <!-- Section 3: WhatsApp Direct -->
 <section class="whatsapp-contact container">
