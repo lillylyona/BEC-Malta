@@ -94,40 +94,37 @@
       }
     });
   </script>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const form = document.getElementById('contact-form');
     
-      form.addEventListener('submit', e => {
-        e.preventDefault();
-        const data = new FormData(form);
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('contact-form');
     
-        fetch('/', {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        })
-        .then(res => {
-          if (!res.ok) throw new Error(res.statusText);
+        form.addEventListener('submit', e => {
+          e.preventDefault();
+          const data = new FormData(form);
     
-          // Replace the entire form with a thank‑you message
-          form.outerHTML = `
-            <div class="form-thankyou">
-              <h2>Thanks for reaching out!</h2>
-              <p>We’ve received your message and will be in touch very soon.</p>
-            </div>
-          `;
-        })
-        .catch(err => {
-          console.error(err);
-          alert('Oops! There was a problem sending your message.');
+          fetch('/', {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          })
+          .then(res => {
+            if (res.ok) {
+              // Show a simple pop‑up alert
+              alert('Thanks for reaching out! We’ve received your message and will be in touch very soon.');
+              form.reset();
+            } else {
+              return res.json().then(err => Promise.reject(err));
+            }
+          })
+          .catch(err => {
+            console.error(err);
+            alert('Oops! Something went wrong. Please try again later.');
+          });
         });
       });
-    });
     </script>
     
-  
 <!-- Section 3: WhatsApp Direct -->
 <section class="whatsapp-contact container">
   <div class="whatsapp-left">
