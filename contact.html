@@ -77,10 +77,10 @@
       <button type="submit" class="btn btn-primary btn-large">Send Message</button>
     </form>
       <!-- hidden success message -->
-    <div id="form-success" class="form-success" hidden>
-      <h2>Thanks! Your message has been sent.</h2>
-      <p>We’ll be in touch very soon.</p>
-    </div>
+      <div id="form-success" class="form-success" style="display:none;">
+        <h2>Thanks! Your message has been sent.</h2>
+        <p>We’ll be in touch very soon.</p>
+      </div>
   </section>
 
   <script>
@@ -99,39 +99,37 @@
   </script>
   
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const form = document.getElementById('contact-form');
+    document.addEventListener('DOMContentLoaded', () => {
+      const form    = document.getElementById('contact-form');
       const success = document.getElementById('form-success');
-  
-      form.addEventListener('submit', function(e) {
+    
+      form.addEventListener('submit', e => {
         e.preventDefault();
-  
-        // gather the form data
+        console.log('Submitting form…');
+    
         const data = new FormData(form);
-  
-        // send to Netlify
+        // Netlify wants it posted to root
         fetch('/', {
           method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: data
+          body: data,
+          headers: { 'Accept': 'application/json' }
         })
-        .then(response => {
-          if (response.ok) {
-            // hide the form, show the thank-you
-            form.hidden = true;
-            success.hidden = false;
-            form.reset();
-          } else {
-            return response.json().then(err => Promise.reject(err));
-          }
+        .then(res => {
+          console.log('Got response', res.status);
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          // hide form + show message
+          form.style.display    = 'none';
+          success.style.display = 'block';
+          form.reset();
         })
-        .catch(error => {
-          alert('Oops! There was a problem submitting your form.');
-          console.error(error);
+        .catch(err => {
+          console.error('Form error:', err);
+          alert('Sorry, something went wrong. Please try again.');
         });
       });
     });
-  </script>
+    </script>
+    
   
 <!-- Section 3: WhatsApp Direct -->
 <section class="whatsapp-contact container">
