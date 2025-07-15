@@ -31,15 +31,14 @@
 
   <!-- Contact Form -->
   <section class="contact-form container">
-    <form name="contact"
-      method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-      action="/success.html">
-  <!-- this must come *before* your other inputs -->
-  <input type="hidden" name="bot-field">
-  <input type="hidden" name="form-name" value="contact">
-
+    <section class="contact-form container">
+      <form
+        name="contact"
+        method="POST"
+        action="/contact.html"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+      >
       <label>Name<br><input type="text" name="name" required></label>
       <label>Email<br><input type="email" name="email" required></label>
       <label>WhatsApp number<br><input type="tel" name="whatsapp"></label>
