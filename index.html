@@ -34,12 +34,11 @@
       <p>Live Online Business English + Guaranteed Malta Diploma Seat</p>
     </div>
   </section>
-
- 
-  <section class="hero-cta-full">
-    <a href="./contact.html" class="btn-hero-strip">
-      Start your Malta diploma now for just €99
-    </a>
+  <section class="bottom-cta">
+    <div class="container">
+      <h2>Start your Malta diploma now for just €99</h2>
+      <a href="contact.html" class="btn btn-primary btn-large">Let's Go</a>
+    </div>
   </section>
  <!-- Why Choose Us -->
   <section class="why-choose container">
@@ -59,49 +58,38 @@
     </div>
   </section>
 
-    <!-- Mid‑Page Full‑Width CTA Banner -->
-    <section class="mid-cta">
-      <div class="container">
-        <a href="contact.html" class="btn btn-primary btn-large mid-cta__link">
-          How it works
-        </a>
-      </div>
-    </section>
   
   <!-- How It Works Preview -->
   <section class="home-pathway container">
     <div class="flow">
       <div class="step">
         <img src="images/laptop-icon.png" alt="Online Pre-Course Icon">
-        <p>Online Pre-Course</p>
+        <p>Pre-Course</p>
       </div>
-      <div class="arrow">→</div>
       <div class="step">
         <img src="images/90DayIcon.png" alt="90 Days Icon">
-        <p>90 Days</p>
+        <p>Scroll</p>
       </div>
-      <div class="arrow">→</div>
+      <div class="step">
+        <img src="images/Calendar.png" alt="90 Days Icon">
+        <p>Calender</p>
+      </div>
       <div class="step">
         <img src="images/flow-icon.png" alt="EU Career Icon">
         <p>EU Career</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Featured Testimonials -->
-  <section class="testimonials-feature container">
-    <h2>What Our Students Say</h2>
-    <div class="testimonials-grid">
-      <div class="testimonial">
-        <img src="images/student1.jpg" alt="Happy Student 1" class="testimonial-photo">
-        <p>“My Business English grew so fast, I felt ready for Europe.”</p>
-      </div>
-      <div class="testimonial">
-        <img src="images/student2.jpg" alt="Happy Student 2" class="testimonial-photo">
-        <p>“Their Malta team helped me find a part-time job in 3 weeks!”</p>
+      <div class="step">
+        <img src="images/icon-briefcase.png" alt="EU Career Icon">
+        <p>Briefcase</p>
       </div>
     </div>
   </section>
+    <!-- Mid‑Page Full‑Width CTA Banner -->
+    <section class="bottom-cta">
+      <div class="container">
+        <a href="contact.html" class="btn btn-primary btn-large">How it Works</a>
+      </div>
+    </section>
 
   <!-- Work Liaison Officer Highlight -->
 <section class="work-highlight">
@@ -114,6 +102,45 @@
       <p>After 90 days in Malta, you’re eligible to work 20 hours/week. Our Work Liaison Officer personally connects you with top employers.</p>
       <a href="contact.html" class="btn btn-primary">Talk to Our Team</a>
     </div>
+  </div>
+</section>
+
+<!-- Featured Testimonials -->
+<section class="testimonials-feature container">
+  <h2>Feedback</h2>
+
+  <div class="testimonials-slider">
+    <button class="slider-btn prev" aria-label="Previous">‹</button>
+    <div class="slider-viewport">
+      <div class="slider-track">
+        <!-- repeat this .testimonial block for all 6 items -->
+        <div class="testimonial">
+          <img src="images/student1.jpg" alt="Happy Student 1" class="testimonial-photo">
+          <p>“Getting Started was so easy. I loved the intro webinar”</p>
+        </div>
+        <div class="testimonial">
+          <img src="images/student2.jpg" alt="Happy Student 2" class="testimonial-photo">
+          <p>“I'm on my second month of the precourse and my business English is growing so fast”</p>
+        </div>
+        <div class="testimonial">
+          <img src="images/student2.jpg" alt="Happy Student 2" class="testimonial-photo">
+          <p>“Their Malta team helped me find a part-time job in 3 weeks!”</p>
+        </div>
+        <div class="testimonial">
+          <img src="images/student2.jpg" alt="Happy Student 2" class="testimonial-photo">
+          <p>“Their Malta team helped me find a part-time job in 3 weeks!”</p>
+        </div>
+        <div class="testimonial">
+          <img src="images/student2.jpg" alt="Happy Student 2" class="testimonial-photo">
+          <p>“Their Malta team helped me find a part-time job in 3 weeks!”</p>
+        </div>
+        <div class="testimonial">
+          <img src="images/student2.jpg" alt="Happy Student 2" class="testimonial-photo">
+          <p>“Their Malta team helped me find a part-time job in 3 weeks!”</p>
+        </div>
+      </div>
+    </div>
+    <button class="slider-btn next" aria-label="Next">›</button>
   </div>
 </section>
 
@@ -162,6 +189,42 @@
     });
   </script>
   
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const track = document.querySelector(".slider-track");
+      const items = Array.from(track.children);
+      const prevBtn = document.querySelector(".slider-btn.prev");
+      const nextBtn = document.querySelector(".slider-btn.next");
+  
+      const visibleCount = 3;       // number of testimonials visible
+      let index = 0;                // current first‐visible testimonial
+  
+      function update() {
+        // clamp index
+        index = Math.max(0, Math.min(index, items.length - visibleCount));
+        const shift = -(index * (items[0].getBoundingClientRect().width + parseFloat(getComputedStyle(items[0]).marginRight)));
+        track.style.transform = `translateX(${shift}px)`;
+  
+        // toggle buttons
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index >= items.length - visibleCount;
+      }
+  
+      prevBtn.addEventListener("click", () => {
+        index--;
+        update();
+      });
+      nextBtn.addEventListener("click", () => {
+        index++;
+        update();
+      });
+  
+      // initialize
+      update();
+      // also recalc on resize
+      window.addEventListener("resize", update);
+    });
+  </script>
   
 </body>
 </html>
