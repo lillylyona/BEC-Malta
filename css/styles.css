@@ -112,8 +112,13 @@
     display: flex;
   }
 }
+/* force white text in all heroes */
+.hero-content.container h1,
+.hero-content.container p {
+  color: #fff;
+}
 
-  
+
 /* ==============================================
    GLOBAL FOOTER (all pages)
    ============================================== */
@@ -306,7 +311,7 @@
   .hero-cta-full .btn-hero-strip {
     display: inline-block;
     color: #fff !important;
-    font-size: 1.5rem;
+    font-size: 1.rem;
     font-weight: 600;
     padding: 0.75rem 1.5rem;
     text-decoration: none;
