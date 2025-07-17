@@ -378,6 +378,21 @@
   }
   
 
+  @media (max-width: 600px) {
+    .home-page .home-pathway .flow {
+      display: block;
+      padding: 0;
+      margin: 2rem 0;
+    }
+    .home-page .home-pathway .flow .step {
+      width: 100%;           /* take the full container width */
+      max-width: none;       /* remove any caps */
+      margin: 1rem 0;        /* vertical spacing only */
+      padding: 1rem;         /* optional: give each tile some padding */
+      box-sizing: border-box;/* ensure padding counts inside width */
+    }
+  }
+
   
   /* Home page Testimonials */
   .testimonials-slider {
