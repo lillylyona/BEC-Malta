@@ -285,20 +285,44 @@
   .home-page .hero-content p {
     font-size: 1.1rem;
   }
-  .home-page .hero-ctas {
-    margin-top: 1.5rem;
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
+
+/* ----------------------------
+   Full‑width Hero CTA Strip
+   ---------------------------- */
+   .hero-cta-full {
+    width: 100vw;            /* span the full viewport width */
+    position: relative;      /* enable negative margins */
+    left: 50%;               /* shift back to center */
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background: #b99d48;     /* same golden background */
+    text-align: center;
+    padding: 1rem 0;         /* vertical padding */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1;
   }
-  .home-page .btn-large {
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
+  
+  .hero-cta-full .btn-hero-strip {
+    display: inline-block;
+    color: #fff !important;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
   }
-  .home-page .btn-small {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+  
+  /* On small screens, make it extra tall/tappable */
+  @media (max-width: 600px) {
+    .hero-cta-full {
+      padding: 1.5rem 0;
+    }
+    .hero-cta-full .btn-hero-strip {
+      font-size: 1rem;
+      padding: 1rem 1.5rem;
+    }
   }
+  
   
   /* Why Choose Us */
   .home-page .why-choose {
