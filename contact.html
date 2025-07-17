@@ -10,12 +10,18 @@
   <!-- Header Navigation -->
   <header class="site-header">
     <nav class="navbar container">
-      <a href="index.html" class="logo">Business English Malta</a>
+      <a href="./index.html" class="logo">Business English Malta</a>
+  
+      <!-- Hamburger button (only visible on mobile) -->
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span class="hamburger"></span>
+      </button>
+  
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li><a href="how-it-works.html">How It Works</a></li>
-        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="index.html" >Home</a></li>
+        <li><a href="./courses.html">Courses</a></li>
+        <li><a href="./how-it-works.html">How It Works</a></li>
+        <li><a href="./contact.html" class="active">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -200,6 +206,16 @@
       <p class="footer-note">Operated by XYZ Ltd, Malta Reg No. CXXXX.</p>
     </div>
   </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const btn = document.querySelector(".nav-toggle");
+      const nav = document.querySelector(".nav-links");
   
+      btn.addEventListener("click", () => {
+        nav.classList.toggle("open");
+        btn.classList.toggle("open");
+      });
+    });
+  </script>
 </body>
 </html>

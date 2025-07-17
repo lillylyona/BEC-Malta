@@ -31,6 +31,8 @@
     background: #fff;
     padding: 1rem 0;
     border-bottom: 1px solid #ececec;
+    position: relative;  /* establish a new stacking context */
+    z-index: 1000;   
   }
   .navbar {
     display: flex;
@@ -56,6 +58,61 @@
     border-bottom: 2px solid #b99d48;
   }
   
+  /* always position the navbar relatively so the dropdown can absolutely position */
+.navbar {
+  position: relative;
+}
+
+/* the hamburger toggle button */
+.nav-toggle {
+  display: none;            /* hidden by default */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1001;
+}
+
+/* three bars */
+.nav-toggle .hamburger,
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #012169;
+  border-radius: 1px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+.nav-toggle .hamburger::before {
+  transform: translateY(-6px);
+}
+.nav-toggle .hamburger::after {
+  transform: translateY(4px);
+}
+
+/* show on mobile widths */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+  
+  /* hide the regular nav until toggle */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+}
+
   
 /* ==============================================
    GLOBAL FOOTER (all pages)
