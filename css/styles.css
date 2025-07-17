@@ -311,7 +311,7 @@
   .hero-cta-full .btn-hero-strip {
     display: inline-block;
     color: #fff !important;
-    font-size: 1.rem;
+    font-size: 1.5rem;
     font-weight: 600;
     padding: 0.75rem 1.5rem;
     text-decoration: none;
@@ -328,7 +328,42 @@
     }
   }
   
-  
+
+  /* ====================================================
+   Mid‑Page Full‑Width CTA (between sections)
+   ==================================================== */
+.mid-cta {
+  background: #b99d48;          /* same gold as your other CTAs */
+}
+.mid-cta .container {
+  padding: 2rem 0;              /* vertical padding above & below */
+  text-align: center;           /* center the link */
+}
+.mid-cta__link {
+  display: inline-block;        /* shrink to fit the text */
+  width: 100%;                  /* fill the container */
+  max-width: 600px;             /* optional cap so it’s not too wide */
+  padding: 1rem 2rem;           /* same padding as your other buttons */
+  font-size: 1.5rem;            /* match your .btn-large style */
+  color: #fff;                  /* white text */
+  text-decoration: none;        /* remove underline */
+  transition: opacity 0.2s;
+}
+.mid-cta__link:hover {
+  opacity: 0.9;
+}
+
+/* shrink the font size a bit on narrow screens */
+@media (max-width: 600px) {
+  .mid-cta .container {
+    padding: 1rem 0;
+  }
+  .mid-cta__link {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
   /* Why Choose Us */
   .home-page .why-choose {
     padding: 4rem 0;
