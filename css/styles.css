@@ -628,6 +628,24 @@
   /* =========================================
      HOW IT WORKS PAGE (body.how-page)
      ========================================= */
+     /* How‑It‑Works Hero Adjustments */
+.how-page .hero-content {
+  /* add top padding to push everything down */
+  padding-top: 3rem;  /* adjust this value up or down */
+}
+
+.how-page .hero-content h1 {
+  /* reduce headline size so it wraps less and sits lower */
+  font-size: 1.5rem;    /* desktop size; tweak to taste */
+  line-height: 1.2;   /* tighten up line height */
+  margin-bottom: 1rem;
+}
+
+.how-page .hero-content p {
+  /* reduce subhead size slightly */
+  font-size: 0.9rem;
+}
+
   .how-page .hero {
     background-image: url('../images/how-it-works-hero.jpg');
     height: 60vh;
@@ -861,8 +879,9 @@
   .contact-page .hero {
     height: auto;           /* remove the fixed 60vh */
     padding: 4rem 0; 
-    background-color: #002855;
+    background-color: #688ab1;
   }
+
   .contact-page .hero-content h1,
   .contact-page .hero-content p {
     color: #fff;
@@ -883,7 +902,7 @@
   /* Contact page hero */
 .contact-page .hero-base {
   position: relative;
-  background-color: #002855;
+  background-color: #475c7687;
   color: #fff;
 }
 .contact-page .hero-base .hero-overlay {
