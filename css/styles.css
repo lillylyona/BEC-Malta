@@ -325,7 +325,7 @@
     width: 50px;
     margin-bottom: 1rem;
   }
-  
+
   /* Card styling (same as your Home “Why Choose Us” cards) */
 .why-choose .cards {
   display: grid;
@@ -343,10 +343,16 @@
   transform: translateY(-5px);
 }
 .why-choose .card-icon {
-  width: 50px;
-  margin-bottom: 1rem;
+  display: block;
+  margin: 0 auto 0.75rem; /* center & restore your usual bottom gap */
+  width: 70px;            /* or whatever bigger size you like */
+  height: auto;
 }
-
+.why-choose .card h3 {
+  margin-top: 0;         /* kill any default spacing */
+  margin-bottom: 1rem;   /* keep your usual bottom spacing */
+  text-align: center;    /* ensure it stays centered under the icon */
+}
   /* Home Pathway */
   .home-page .home-pathway .flow {
     display: flex;
