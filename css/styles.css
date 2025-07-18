@@ -516,17 +516,17 @@
   }
   
   /* Bottom CTA */
-  .home-page .bottom-cta {
+.bottom-cta {
     background: #b99d48;
     color: #F9F9F9;
     text-align: center;
     padding: 3rem 0;
   }
-  .home-page .bottom-cta h2 {
+.bottom-cta h2 {
     font-size: 1.75rem;
     margin-bottom: 1.5rem;
   }
-  .home-page .bottom-cta .btn-large {
+   .bottom-cta .btn-large {
     background: #012169;
     color: #fff;
   }
