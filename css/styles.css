@@ -354,44 +354,98 @@
   text-align: center;    /* ensure it stays centered under the icon */
 }
   /* Home Pathway */
-  .home-page .home-pathway .flow {
-    display: flex;
-    flex-wrap: nowrap;             /* keep them all on one line */
-    align-items: center;
-    justify-content: space-between;/* spread out evenly */
-    margin: 3rem 0;
-    width: 100%;
-    max-width: 1100px;             /* cap at your container width */
-    margin-left: auto;
-    margin-right: auto;            /* center the whole row */
-    padding: 0 1rem;               /* optional side padding on small screens */
-  }
-  
-  .home-page .home-pathway .step {
-    flex: 1 1 0;                   /* each step takes equal share */
-    text-align: center;
-  }
-  
-  .home-page .home-pathway .step img {
-    width: 60px;
-    margin-bottom: 0.5rem;
-  }
-  
+ /* make this section break out full-width */
+.container-full {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
 
-  @media (max-width: 600px) {
-    .home-page .home-pathway .flow {
-      display: block;
-      padding: 0;
-      margin: 2rem 0;
-    }
-    .home-page .home-pathway .flow .step {
-      width: 100%;           /* take the full container width */
-      max-width: none;       /* remove any caps */
-      margin: 1rem 0;        /* vertical spacing only */
-      padding: 1rem;         /* optional: give each tile some padding */
-      box-sizing: border-box;/* ensure padding counts inside width */
-    }
+.home-pathway .flow {
+  display: flex;
+  align-items: center;       /* vertical centering */
+  justify-content: space-between;
+  gap: 0;                    /* no gap – arrows provide spacing */
+  padding: 2rem 1rem;
+}
+
+/* inject a gold arrow between each step, vertically centered */
+.home-pathway .flow .step:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  top: 50%;
+  right: -0.75rem;           /* tuck it into the gap between cards */
+  transform: translateY(-50%);
+  color: #b99d48;
+  font-size: 1.5rem;
+}
+
+.home-pathway .flow .step {
+  flex: 1;
+  text-align: center;
+  position: relative;        /* establish a positioning context */
+}
+
+.home-page .home-pathway .flow .step:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  /* align at roughly the vertical centre of a 60px icon: */
+  top: calc( (60px / 2) + 0px ); /* adjust the “+ 0px” if your icon has extra margin */
+  right: -1rem;                  /* tuck it into the gutter */
+  transform: translateY(-50%);
+  color: #b99d48;
+  font-size: 1.5rem;
+}
+
+
+.home-pathway .flow .step img {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+
+.home-pathway .flow .step h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: #012169;
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
+.home-pathway .flow .step p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #333;
+  margin: 0 auto;
+  max-width: 180px;
+}
+
+/* mobile: stack cards full-width, arrows removed */
+@media (max-width: 600px) {
+  .home-pathway .flow {
+    display: block;
+    padding: 1rem;
   }
+  .home-pathway .flow .step {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border-radius: 8px;
+  }
+  .home-pathway .flow .step:not(:last-child)::after {
+    content: none;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Hide the between-icons arrows on small screens */
+  .home-page .home-pathway .flow .step:not(:last-child)::after {
+    display: none;
+  }
+}
 
   
   /* Home page Testimonials */
