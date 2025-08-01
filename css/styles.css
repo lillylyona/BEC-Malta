@@ -1364,3 +1364,140 @@
   font-size: 0.9rem;
   margin-top: 1rem;
 }
+
+/* 1) Ensure the modal is the positioning context */
+.modal {
+  position: relative;
+  background: #fff;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 700px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: popIn 0.2s ease-out;
+}
+
+
+
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Backdrop stays the same */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* Modal container */
+.modal––attention--with-image {
+  background: #fff;
+  border: 6px solid #b99d48;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 90%;
+  padding: 1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  animation: popIn 0.3s ease-out;
+}
+
+/* Two-column layout */
+.modal-inner {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Left image column */
+.modal-illustration {
+  flex: 1 1 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.modal-illustration img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* Right content column */
+.modal-content {
+  flex: 2 1 300px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+/* Headline */
+.modal-content h2 {
+  font-size: 2rem;
+  line-height: 1.2;
+  color: #012169;
+  margin-bottom: 1rem;
+}
+
+/* Paragraph */
+.modal-content p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* CTA Button */
+.modal-content .btn-primary {
+  background: #b99d48;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+.modal-content .btn-primary:hover {
+  background: #a5883f;
+}
+
+/* 3) Style the close button */
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;           /* make sure it floats above everything else */
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #666;
+  cursor: pointer;
+}
+
+/* Pop-in animation */
+@keyframes popIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* Responsive: stack on mobile */
+@media (max-width: 600px) {
+  .modal-inner {
+    flex-direction: column;
+  }
+  .modal-illustration,
+  .modal-content {
+    padding: 1rem;
+  }
+  .modal-illustration img {
+    max-width: 80%;
+  }
+}
