@@ -210,27 +210,33 @@
         <!-- repeat this .testimonial block for all 6 items -->
         <div class="testimonial">
           <img src="images/student1.jpg" alt="Happy Student 1" class="testimonial-photo">
-          <p>“Getting Started was so easy. I loved the intro webinar”</p>
+          <p>"The Friday webinar helped me understand everything clearly before signing up. It felt personal, and I liked that I could ask questions directly."
+            — Amina R., Morocco</p>
         </div>
         <div class="testimonial">
           <img src="images/student2.jpg" alt="Happy Student 2" class="testimonial-photo">
-          <p>“I'm on my second month of the precourse and my business English is growing so fast”</p>
+          <p>"Booking my place through the verified agent was so simple. They guided me step by step, explained everything clearly, and helped me register without any stress."
+            — Mohd. Faizan, India</p>
         </div>
         <div class="testimonial">
           <img src="images/student2.jpg" alt="Happy Student 2" class="testimonial-photo">
-          <p>“Their Malta team helped me find a part-time job in 3 weeks!”</p>
+          <p>"What convinced me was meeting the team during the webinar. They explained how the course works, and I knew it was serious and well organized."
+            — Surya D., India</p>
         </div>
         <div class="testimonial">
           <img src="images/student2.jpg" alt="Happy Student 2" class="testimonial-photo">
-          <p>“Their Malta team helped me find a part-time job in 3 weeks!”</p>
+          <p>"The online lessons are easy to follow, and I like that it’s only two hours a week. I’m learning at my pace, and the support is always there."
+            — Leya S., Kenya</p>
         </div>
         <div class="testimonial">
           <img src="images/student2.jpg" alt="Happy Student 2" class="testimonial-photo">
-          <p>“Their Malta team helped me find a part-time job in 3 weeks!”</p>
+          <p>"Before the pre-course, I wasn’t sure if I could study in English. Now I’m excited to go to Malta and start the diploma."
+            — Phuc T., Vietnam</p>
         </div>
         <div class="testimonial">
           <img src="images/student2.jpg" alt="Happy Student 2" class="testimonial-photo">
-          <p>“Their Malta team helped me find a part-time job in 3 weeks!”</p>
+          <p>"I’m just three weeks into the pre-course, and I already feel more confident speaking in English. The vocabulary focus is really useful for business terms."
+            — Victor C., Brazil</p>
         </div>
       </div>
     </div>
@@ -273,6 +279,43 @@
         nav.classList.toggle("open");
         btn.classList.toggle("open");
       });
+    });
+  </script>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const track = document.querySelector(".slider-track");
+      const items = Array.from(track.children);
+      const prevBtn = document.querySelector(".slider-btn.prev");
+      const nextBtn = document.querySelector(".slider-btn.next");
+  
+      const visibleCount = 3;       // number of testimonials visible
+      let index = 0;                // current first‐visible testimonial
+  
+      function update() {
+        // clamp index
+        index = Math.max(0, Math.min(index, items.length - visibleCount));
+        const shift = -(index * (items[0].getBoundingClientRect().width + parseFloat(getComputedStyle(items[0]).marginRight)));
+        track.style.transform = `translateX(${shift}px)`;
+  
+        // toggle buttons
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index >= items.length - visibleCount;
+      }
+  
+      prevBtn.addEventListener("click", () => {
+        index--;
+        update();
+      });
+      nextBtn.addEventListener("click", () => {
+        index++;
+        update();
+      });
+  
+      // initialize
+      update();
+      // also recalc on resize
+      window.addEventListener("resize", update);
     });
   </script>
 </body>

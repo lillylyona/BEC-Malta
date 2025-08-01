@@ -230,6 +230,42 @@
     </div>
   </footer>
   <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const track = document.querySelector(".slider-track");
+      const items = Array.from(track.children);
+      const prevBtn = document.querySelector(".slider-btn.prev");
+      const nextBtn = document.querySelector(".slider-btn.next");
+  
+      const visibleCount = 3;       // number of testimonials visible
+      let index = 0;                // current first‐visible testimonial
+  
+      function update() {
+        // clamp index
+        index = Math.max(0, Math.min(index, items.length - visibleCount));
+        const shift = -(index * (items[0].getBoundingClientRect().width + parseFloat(getComputedStyle(items[0]).marginRight)));
+        track.style.transform = `translateX(${shift}px)`;
+  
+        // toggle buttons
+        prevBtn.disabled = index === 0;
+        nextBtn.disabled = index >= items.length - visibleCount;
+      }
+  
+      prevBtn.addEventListener("click", () => {
+        index--;
+        update();
+      });
+      nextBtn.addEventListener("click", () => {
+        index++;
+        update();
+      });
+  
+      // initialize
+      update();
+      // also recalc on resize
+      window.addEventListener("resize", update);
+    });
+  </script>
+  <script>
     document.addEventListener("DOMContentLoaded", function() {
       const btn = document.querySelector(".nav-toggle");
       const nav = document.querySelector(".nav-links");
