@@ -662,15 +662,11 @@
     border-left: 4px solid #b99d48;
     margin-bottom: 4rem;
   }
-  .courses-page .diploma {
-
-    margin: 4rem 0;
-  }
 
   .courses-page .diploma-content {
     max-width: 800px;         /* cap the width */
     margin: 0 auto;           /* center it */
-    text-align: left;         /* keep list items aligned */
+    text-align: center;         /* keep list items aligned */
     padding: 0 1rem;          /* small side padding on mobile */
   }
 
