@@ -36,12 +36,26 @@
     </div>
   </section>
 
+  <!-- 1. Filter control -->
+ 
+  
+  
     <!-- AGENT CARDS SECTION -->
     <section class="agent-cards container" style="padding:4rem 0;">
+      <div class="agent-filter" style="text-align:right; margin-bottom:1rem;">
+        <label for="country-filter">Filter by country:</label>
+        <select id="country-filter">
+          <option value="all">All</option>
+          <option value="india">India</option>
+          <option value="england">England</option>
+          <option value="malta">Malta</option>
+          <option value="germany">Germany</option>
+        </select>
+      </div>
       <div class="cards-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem;">
   
         <!-- Card 1 -->
-        <div class="contact-card">
+        <div class="contact-card" data-country="india">
           <h3>🏢 Future Pathway</h3>
           <div class="contact-item"><span>🌐</span><a target="_blank">www.futurespath.in</a></div>
           <div class="contact-item"><span>✉️</span><a>info@futurespath.in</a></div>
@@ -54,7 +68,7 @@
         </div>
   
         <!-- Card 2 -->
-        <div class="contact-card">
+        <div class="contact-card" data-country="england">
           <h3>🏢 Global English Hub</h3>
           <div class="contact-item"><span>🌐</span><a target="_blank">www.globalenglishhub.com</a></div>
           <div class="contact-item"><span>✉️</span><a>hello@globalenglishhub.com</a></div>
@@ -67,7 +81,7 @@
         </div>
   
         <!-- Card 3 -->
-        <div class="contact-card">
+        <div class="contact-card" data-country="malta">
           <h3>🏢 Malta Business Academy</h3>
           <div class="contact-item"><span>🌐</span><a target="_blank">www.maltabusinessacademy.mt</a></div>
           <div class="contact-item"><span>✉️</span><a >contact@maltabusinessacademy.mt</a></div>
@@ -80,7 +94,7 @@
         </div>
   
         <!-- Card 4 -->
-        <div class="contact-card">
+        <div class="contact-card" data-country="germany">
           <h3>🏢 EuroLink Consultants</h3>
           <div class="contact-item"><span>🌐</span><a target="_blank">www.eurolinkconsultants.eu</a></div>
           <div class="contact-item"><span>✉️</span><a>info@eurolinkconsultants.eu</a></div>
@@ -95,114 +109,6 @@
       </div>
     </section>
   
-  <!-- Contact Form 
-    <section class="contact-form container">
-      <form
-  id="contact-form"
-  name="contact"
-  method="POST"
-  action="/contact.html"
-  data-netlify="true"
-  netlify-honeypot="bot-field"
->
-      <label>
-        Name<br>
-        <input type="text" name="name" required minlength="2" placeholder="Your full name">
-      </label>
-      <label>
-        Email<br>
-        <input type="email" name="email" required placeholder="you@example.com">
-      </label>
-      <label>
-        WhatsApp number<br>
-        <input
-          type="tel"
-          name="whatsapp"
-          required
-          placeholder="+35612345678"
-          pattern="^\+?[0-9]{7,15}$"
-          title="Include country code, digits only (7–15 digits)."
-        >
-      </label>
-      <label>
-        Country<br>
-        <input type="text" name="country" required placeholder="Your country">
-      </label>
-      <label>
-        Message<br>
-        <textarea name="message" rows="4" required placeholder="What can we help you with?"></textarea>
-      </label>
-      <label>
-        I am a<br>
-        <select name="role">
-          <option>Future student</option>
-          <option>Parent</option>
-          <option>Education agent</option>
-        </select>
-      </label>
-
-      <button type="submit" class="btn btn-primary btn-large">Send Message</button>
-    </form>
-  
-  </section>
-
-  <script>
-    document.querySelector('.contact-form form').addEventListener('submit', function(e) {
-      const form = e.target;
-      if (!form.checkValidity()) {
-        // find the first invalid field and focus it
-        const firstInvalid = form.querySelector(':invalid');
-        firstInvalid.focus();
-  
-        // show its browser default validation message
-        alert(firstInvalid.validationMessage);
-        e.preventDefault();
-      }
-    });
-  </script>
-    
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        const form = document.getElementById('contact-form');
-    
-        form.addEventListener('submit', e => {
-          e.preventDefault();
-          const data = new FormData(form);
-    
-          fetch('/', {
-            method: 'POST',
-            body: data,
-            headers: { 'Accept': 'application/json' }
-          })
-          .then(res => {
-            if (res.ok) {
-              // Show a simple pop‑up alert
-              alert('Thanks for reaching out! We’ve received your message and will be in touch very soon.');
-              form.reset();
-            } else {
-              return res.json().then(err => Promise.reject(err));
-            }
-          })
-          .catch(err => {
-            console.error(err);
-            alert('Oops! Something went wrong. Please try again later.');
-          });
-        });
-      });
-    </script>
-    -->
-<!-- Section 3: WhatsApp Direct
-<section class="whatsapp-contact container">
-  <div class="whatsapp-left">
-    <img src="images/whatsapp-icon.png" alt="WhatsApp">
-    <p>Chat with us now on WhatsApp:<br><a href="https://wa.me/356XXXXXXX">+356 XXX XXXX</a></p>
-  </div>
-  <div class="whatsapp-right">
-    <p>Fast replies from our Malta office during business hours.</p>
-  </div>
-</section>
- -->
-
   <!-- Office Info -->
   <section class="office-info container">
     <h2>Our Malta Office</h2>
@@ -276,6 +182,25 @@
         btn.classList.toggle("open");
       });
     });
+
   </script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filter = document.getElementById('country-filter');
+    const cards  = document.querySelectorAll('.contact-card');
+
+    filter.addEventListener('change', () => {
+      const val = filter.value; // e.g. "india", "malta", or "all"
+      cards.forEach(card => {
+        if (val === 'all' || card.dataset.country === val) {
+          card.style.display = '';       // show
+        } else {
+          card.style.display = 'none';   // hide
+        }
+      });
+    });
+  });
+</script>
+  
 </body>
 </html>
