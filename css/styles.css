@@ -1017,7 +1017,9 @@
   }
 
   .how-page__work-support-inner .work-image img {
-    width: 100%;             /* responsive image */
+    display: block;
+    width: 100%;     
+    margin: 0 auto;              /* responsive image */
     height: auto;
     border-radius: 8px;
   }
