@@ -1102,6 +1102,9 @@
   font-size: 3rem;
 }
 
+.testimonials-feature  h2{
+  text-align: center;
+}
 /* only inside the courses‐page testimonials */
 .courses-page .testimonials blockquote::before {
   position: absolute;
