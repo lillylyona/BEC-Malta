@@ -487,13 +487,12 @@
     margin-right: 0;
   }
   
-  /* shrink testimonial photos */
-  .testimonial-photo {
-    width: 120px;      /* rectangle width */
-    height: 90px;      /* rectangle height */
-    object-fit: cover; /* crop to fill */
-    border-radius: 4px;/* slight rounding—optional */
-    margin: 0 auto 1rem;
+  .testimonial .star-rating {
+    font-size: 1.5rem;          /* adjust star size */
+    line-height: 1;
+    color: #b99d48;             /* your gold color */
+    margin-bottom: 1rem;
+    letter-spacing: 0.1rem;     /* spread them out a bit */
   }
 
 /* optionally reduce card padding so the whole slide feels tighter */
