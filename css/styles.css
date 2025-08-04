@@ -288,7 +288,7 @@
     font-size: 2.5rem;
   }
   .home-page .hero-content p {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
   }
 
   
@@ -593,6 +593,14 @@
     display: flex;
     align-items: center;
   }
+
+  .courses-page .hero h1{
+    font-size: 2.5rem;
+  }
+
+  .courses-page .hero p{
+    font-size: 1.5rem;
+  }
 /* Courses Intro – base two‑column */
 .courses-page .courses-intro {
   display: flex;
@@ -854,14 +862,14 @@
 
 .how-page .hero-content h1 {
   /* reduce headline size so it wraps less and sits lower */
-  font-size: 1.5rem;    /* desktop size; tweak to taste */
+  font-size: 2.5rem;    /* desktop size; tweak to taste */
   line-height: 1.2;   /* tighten up line height */
   margin-bottom: 1rem;
 }
 
 .how-page .hero-content p {
   /* reduce subhead size slightly */
-  font-size: 0.9rem;
+  font-size: 1.5rem;
 }
 
   .how-page .hero {
@@ -1129,9 +1137,15 @@
     background-color: #688ab1;
   }
 
-  .contact-page .hero-content h1,
-  .contact-page .hero-content p {
-    color: #fff;
+
+  .contact-page section.hero.hero-base .hero-content h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-page section.hero.hero-base .hero-content p {
+    font-size: 1.5rem;
   }
   
   /* Shrink it on small screens */
