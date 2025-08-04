@@ -764,11 +764,7 @@
   margin-bottom: 0.75rem;
   font-size: 1.1rem;
 }
-.courses-page .module h3 span {
-  font-weight: 400;
-  font-size: 0.9rem;
-  color: #666;
-}
+
 .courses-page .module p {
   font-size: 0.95rem;
   line-height: 1.6;
@@ -1147,7 +1143,7 @@
   .contact-page section.hero.hero-base .hero-content p {
     font-size: 1.5rem;
   }
-  
+
   /* Shrink it on small screens */
 @media (max-width: 768px) {
   .contact-page .hero {
