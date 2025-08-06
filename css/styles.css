@@ -291,6 +291,22 @@
     font-size: 1.5rem;
   }
 
+  .hero-content .flashing-text {
+    color: #002855 !important;
+    font-weight: bold;
+    animation: flash 1.5s infinite;
+  }
+  
+  .hero-content .flashing-text .larger-text {
+    font-size: 1.5em; /* adjust size as needed */
+  }
+  
+  @keyframes flash {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+  
+
   
   /* On small screens, make it extra tall/tappable */
   @media (max-width: 600px) {
@@ -589,10 +605,11 @@
      ========================================= */
   .courses-page .hero {
     background-image: url('../images/courses-hero.jpg');
-    height: 60vh;
+    height: 75vh;
     display: flex;
     align-items: center;
   }
+
 
   .courses-page .hero h1{
     font-size: 2.5rem;
@@ -866,7 +883,7 @@
 
   .how-page .hero {
     background-image: url('../images/how-it-works-hero.jpg');
-    height: 60vh;
+    height: 75vh;
     display: flex;
     align-items: center;
   }
@@ -1127,9 +1144,10 @@
      CONTACT PAGE (body.contact-page)
      ========================================= */
   .contact-page .hero {
-    height: auto;           /* remove the fixed 60vh */
+    height: auto;           
     padding: 4rem 0; 
     background-color: #688ab1;
+    height: 75vh;
   }
 
 
